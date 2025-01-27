@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    password: postgres
+    username: postgres
+    url: jdbc:postgresql://localhost:5433/postgres
+  application:
+    name: branch-service
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+  data:
+    jpa:
+      repositories:
+        enabled: true
+
+predict:
+  url: http://localhost:5000/predict
+
+service:
+  url: http://localhost:8082/service
