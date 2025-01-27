@@ -1,0 +1,50 @@
+.services_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.service_list_container {
+    margin: 10px auto;
+    width: 60%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.service_container {
+    flex: 0 0 45%;
+}
+
+.pages {
+    display: flex;
+    justify-content: space-between;
+}
+
+.page {
+    width: 20px;
+    height: 20px;
+    background-color: azure;
+}
+
+@media (max-width: 600px) {
+    .service_list_container {
+        width: 100%;
+        margin: 5px;
+        padding: 5px;
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .service_container {
+        width: 100%;
+
+    }
+}

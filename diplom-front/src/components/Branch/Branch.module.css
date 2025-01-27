@@ -1,0 +1,18 @@
+.small_container {
+    border-radius: 15px;
+    box-shadow: rgba(138, 150, 168, 0.4) 0px 4px 16px, rgba(138, 150, 168, 0.08) 0px 0px 6px;
+    padding: 10px;
+    width: 500px;
+    height: 450px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 600px) {
+    .small_container {
+        width: 100%;
+        margin: 0;
+        padding-left: 10px;
+    }
+}
