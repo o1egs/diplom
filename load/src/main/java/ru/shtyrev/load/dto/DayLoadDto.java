@@ -1,11 +1,13 @@
 package ru.shtyrev.load.dto;
 
+import lombok.Builder;
 import lombok.Value;
 
 import java.time.LocalDate;
 
 @Value
-public class PredictionResponse {
-    Long branchId;
+@Builder
+public class DayLoadDto {
     LocalDate date;
+    Long load;
 }

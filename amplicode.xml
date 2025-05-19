@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AmplicodePersistenceUnitSettings">
+    <persistence-units>
+      <persistence-unit moduleName="branch" name="Default">
+        <packages>
+          <package value="ru.shtyrev.branch" />
+        </packages>
+      </persistence-unit>
+      <persistence-unit moduleName="load" name="Default">
+        <packages>
+          <package value="ru.shtyrev.load" />
+        </packages>
+      </persistence-unit>
+      <persistence-unit moduleName="service" name="Default">
+        <packages>
+          <package value="ru.shtyrev.service" />
+        </packages>
+      </persistence-unit>
+      <persistence-unit moduleName="user" name="Default">
+        <packages>
+          <package value="ru.shtyrev.user" />
+        </packages>
+      </persistence-unit>
+    </persistence-units>
+  </component>
+</project>

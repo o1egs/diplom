@@ -10,5 +10,5 @@ import lombok.*;
 @Builder
 public class LoadTime {
     private String time;
-    private int load;
+    private Integer load;
 }

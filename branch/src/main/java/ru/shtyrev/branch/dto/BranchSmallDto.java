@@ -3,6 +3,8 @@ package ru.shtyrev.branch.dto;
 import lombok.*;
 import ru.shtyrev.branch.entity.Coordinate;
 
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
@@ -15,4 +17,5 @@ public class BranchSmallDto {
     private Double mark;
     private Double distance;
     private Coordinate coordinate;
+    private List<Long> providedServiceId;
 }

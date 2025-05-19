@@ -6,10 +6,12 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.shtyrev.branch.dto.*;
+import ru.shtyrev.branch.dto.provided.ProvidedServiceDto;
 import ru.shtyrev.branch.entity.Branch;
 import ru.shtyrev.branch.entity.Coordinate;
 import ru.shtyrev.branch.mapper.BranchMapper;
 import ru.shtyrev.branch.repository.BranchRepository;
+import ru.shtyrev.branch.repository.ProvidedServiceRepository;
 
 import java.util.List;
 import java.util.Random;
@@ -26,6 +28,7 @@ import static lombok.AccessLevel.*;
 )
 @RequiredArgsConstructor
 public class BranchService {
+    ProvidedServiceService providedServiceService;
     BranchRepository branchRepository;
     BranchMapper branchMapper;
 
@@ -94,6 +97,7 @@ public class BranchService {
                 .orElseThrow(RuntimeException::new);
     }
 
+    @Transactional
     public NearestBranchesResponseDto getNearestBranches(NearestBranchesRequestDto nearestBranchesRequestDto) {
         List<Branch> branches;
 
@@ -111,10 +115,14 @@ public class BranchService {
                 .sorted(comparing(branch -> getDistance(branch, coordinate)))
                 .limit(nearestBranchesRequestDto.getSize())
                 .map(branch -> {
+                    List<Long> ids = providedServiceService.findAllProvidedServicesByBranchId(branch.getId()).stream()
+                            .map(ps -> ps.getServiceDto().getId())
+                            .toList();
                     Double distance = getDistance(branch, coordinate);
                     BranchSmallDto smallBranchDto = branchMapper.toSmallBranchDto(branch);
                     smallBranchDto.setDistance(distance);
                     smallBranchDto.setCoordinate(branch.getCoordinate());
+                    smallBranchDto.setProvidedServiceId(ids);
                     return smallBranchDto;
                 })
                 .toList();
@@ -152,7 +160,7 @@ public class BranchService {
     }
 
     public Integer getCurrentLoadById(Long branchId) {
-        return new Random().nextInt(10);
+        return new Random().nextInt(3);
     }
 
     public Integer getAverageLoadById(Long branchId) {

@@ -28,9 +28,52 @@ public class LoadServiceApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 //		loadRepository.findAll().forEach(load -> {
-//					load.setTime(load.getTime().minusHours(5));
+//					load.setLoad(new Random().nextInt(10));
 //					loadRepository.save(load);
 //				});
+
+//		loadRepository.deleteAll();
+//
+//		LocalDate start = LocalDate.of(2025, 1, 1);
+//
+//		LocalDate end = LocalDate.now();
+//
+//		while(true) {
+//			if (start.equals(end)) {
+//				return;
+//			}
+//
+//			for (int i = 8; i <= 18; i++) {
+//				LocalTime time = LocalTime.of(i, 0, 0);
+//
+//				Random random = new Random();
+//
+//				Load load102 = Load.builder()
+//						.date(start)
+//						.time(time)
+//						.branchId(102L)
+//						.load(random.nextInt(10))
+//						.build();
+//
+//				Load load104 = Load.builder()
+//						.date(start)
+//						.time(time)
+//						.branchId(104L)
+//						.load(random.nextInt(10))
+//						.build();
+//
+//				Load load105 = Load.builder()
+//						.date(start)
+//						.time(time)
+//						.branchId(105L)
+//						.load(random.nextInt(10))
+//						.build();
+//
+//				loadRepository.saveAll(List.of(load102, load104, load105));
+//			}
+//
+//			start = start.plusDays(1);
+//		}
 
 	}
 }

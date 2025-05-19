@@ -10,4 +10,8 @@ import java.util.List;
 @Repository
 public interface LoadRepository extends JpaRepository<Load, Long> {
     List<Load> findByBranchIdAndDateGreaterThan(Long branchId, LocalDate date);
+
+    List<Load> findByBranchIdAndDateBetween(Long id, LocalDate dateStart, LocalDate dateEnd);
+
+    long countByIdAndDateBetween(Long id, LocalDate dateStart, LocalDate dateEnd);
 }
